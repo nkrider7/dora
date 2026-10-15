@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dora Olympic Runner 3D - Pro Edition</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Top HUD -->
+  <div id="hud">
+    <div class="hud-card">
+      <div class="stat-row">
+        <div class="stat">SCORE <span id="score">0</span></div>
+        <div class="stat high">BEST <span id="highScore">0</span></div>
+      </div>
+      <div class="level-info">
+        <div class="level-header">
+          <span id="levelBadge">LEVEL 1</span>
+          <span id="phaseName">School Qualifier</span>
+        </div>
+        <div class="progress-track">
+          <div id="phaseProgress" class="progress-fill"></div>
+        </div>
+      </div>
+      <div id="powerHud" class="power-badge hidden">
+        PROPELLER FLIGHT: <span id="powerTimer">10</span>s
+      </div>
+    </div>
+    <div class="controls-hint">
+      <span><b>[SPACE / W / UP]</b> Jump / Fly</span>
+      <span><b>[CLICK / F / ENTER]</b> Shoot</span>
+      <span><b>[G]</b> God Mode</span>
+    </div>
+  </div>
+
+  <!-- Top-Right Interactive Buttons -->
+  <div id="topControls">
+    <button id="godModeBtn" class="action-btn" title="Toggle Invincibility (Shortcut: G)">
+      🛡️ GOD MODE: <span id="godModeState">OFF</span>
+    </button>
+    <button id="soundBtn" class="action-btn sound-on" title="Toggle Sound Effects (Shortcut: M)">
+      🔊 SOUND: <span id="soundState">ON</span>
+    </button>
+  </div>
+
+  <!-- Center Phase Transition Banner -->
+  <div id="phaseBanner" class="hidden">
+    <div class="banner-sub" id="bannerSub">PHASE COMPLETE!</div>
+    <div class="banner-title" id="bannerTitle">LEVEL 2: SUNSET ARENA</div>
+  </div>
+
+  <!-- Start / Game Over Overlay -->
+  <div id="overlay">
+    <div class="modal-card">
+      <div class="badge-tag">PRO CHAMPIONSHIP EDITION</div>
+      <h1 id="titleText">SUPER DORA OLYMPICS 3D</h1>
+      <p id="subText">Jump over Hurdles, Blast Rogue Bots &amp; Collect Golden Stars to Fly through 4 Olympic Phases!</p>
+      <div class="modal-actions">
+        <button id="startBtn">START GAME</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
