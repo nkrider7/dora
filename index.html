@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -28,7 +29,10 @@
     }
   </script>
 
-  <!-- Prism.js Syntax Highlighting for code blocks -->
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Prism.js Syntax Highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
@@ -43,34 +47,36 @@
     pre[class*="language-"] { background: transparent !important; margin: 0 !important; padding: 0 !important; }
   </style>
 </head>
-<body class="bg-white text-zinc-900 dark:bg-[#0c0d12] dark:text-zinc-100 min-h-screen flex antialiased transition-colors duration-150 overflow-x-hidden">
+<body class="bg-white text-zinc-900 dark:bg-[#0c0d12] dark:text-zinc-100 min-h-screen flex antialiased transition-colors duration-150 overflow-x-hidden font-sans">
 
-  <!-- Left Guest Sidebar (Exact SoulSpace Reader Match) -->
-  <aside id="guest-sidebar" class="relative flex h-screen w-64 shrink-0 flex-col border-r border-zinc-200 dark:border-zinc-800/80 bg-zinc-50 dark:bg-[#111218] select-none transition-all duration-200 z-30 sticky top-0">
-    <!-- Top Header / Brand -->
+  <!-- Left Guest Sidebar (Exact SoulSpace Public Reader Match) -->
+  <aside id="guest-sidebar" class="relative flex h-screen w-64 shrink-0 flex-col border-r border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/95 dark:bg-[#111218]/95 select-none transition-all duration-200 z-30 sticky top-0">
+    <!-- Top Brand Header -->
     <div class="flex h-12 shrink-0 items-center justify-between border-b border-zinc-200 dark:border-zinc-800/80 px-3.5">
       <div class="flex items-center gap-2 min-w-0">
-        <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-indigo-500/10 text-indigo-500 font-bold text-xs">
-          📖
+        <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+          <i data-lucide="book-open" class="h-3.5 w-3.5"></i>
         </div>
         <span class="text-xs font-semibold tracking-tight text-zinc-800 dark:text-zinc-200 truncate">
           Soul Space
         </span>
-        <span class="rounded bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-500 dark:text-zinc-400">
+        <span class="rounded bg-zinc-200/80 dark:bg-zinc-800 px-1.5 py-0.5 text-[10px] font-medium text-zinc-600 dark:text-zinc-400">
           Reader
         </span>
       </div>
-      <button onclick="toggleSidebar()" class="h-7 w-7 rounded-md text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 flex items-center justify-center transition-colors" title="Toggle sidebar">
-        ◀
+      <button onclick="toggleSidebar()" class="h-7 w-7 rounded-md text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/60 dark:hover:bg-zinc-800 flex items-center justify-center transition-colors cursor-pointer" title="Collapse sidebar">
+        <i data-lucide="chevrons-left" class="h-4 w-4"></i>
       </button>
     </div>
+
+    
 
     <!-- Currently Viewing Card -->
     <div class="p-3 border-b border-zinc-200 dark:border-zinc-800/60">
       <div class="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider mb-1.5">
         CURRENTLY VIEWING
       </div>
-      <div class="flex items-start gap-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800/40 p-2.5 border border-zinc-200 dark:border-zinc-700/50">
+      <div class="flex items-start gap-2.5 rounded-lg bg-white dark:bg-zinc-800/40 p-2.5 border border-zinc-200 dark:border-zinc-700/50 shadow-2xs">
         <div class="text-base shrink-0 mt-0.5">
           <img src="https://res.cloudinary.com/heaa0mxa/image/upload/v1793376736/Untitled_-_October_09_2026_at_20.51.55-27.webp" class="h-5 w-5 rounded object-cover" />
         </div>
@@ -87,61 +93,77 @@
         TABLE OF CONTENTS
       </div>
       
-        <button onclick="scrollToHeading('heading-0-ai-connection-app-blueprint')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 font-medium">
-          <span class="opacity-40">#</span>
-          <span class="truncate">AI Connection App Blueprint</span>
-        </button>
-      
-        <button onclick="scrollToHeading('heading-1-1-executive-summary')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 pl-4">
-          <span class="opacity-40">#</span>
+        <button onclick="scrollToHeading('heading-1-1-executive-summary')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 cursor-pointer pl-4">
+          <i data-lucide="hash" class="h-3 w-3 opacity-50 shrink-0"></i>
           <span class="truncate">1. Executive Summary</span>
         </button>
       
-        <button onclick="scrollToHeading('heading-12-2-core-architectural-requirements')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 pl-4">
-          <span class="opacity-40">#</span>
+        <button onclick="scrollToHeading('heading-9-2-core-architectural-requirements')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 cursor-pointer pl-4">
+          <i data-lucide="hash" class="h-3 w-3 opacity-50 shrink-0"></i>
           <span class="truncate">2. Core Architectural Requirements</span>
         </button>
       
-        <button onclick="scrollToHeading('heading-13-a-real-time-transport-layer')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 pl-6">
-          <span class="opacity-40">#</span>
+        <button onclick="scrollToHeading('heading-10-a-real-time-transport-layer')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 cursor-pointer pl-6">
+          <i data-lucide="hash" class="h-3 w-3 opacity-50 shrink-0"></i>
           <span class="truncate">A. Real-Time Transport Layer</span>
         </button>
       
-        <button onclick="scrollToHeading('heading-17-b-multi-model-gateway-orchestration')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 pl-6">
-          <span class="opacity-40">#</span>
+        <button onclick="scrollToHeading('heading-14-b-multi-model-gateway-orchestration')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 cursor-pointer pl-6">
+          <i data-lucide="hash" class="h-3 w-3 opacity-50 shrink-0"></i>
           <span class="truncate">B. Multi-Model Gateway &amp; Orchestration</span>
         </button>
       
-        <button onclick="scrollToHeading('heading-21-c-context-vector-memory-pipeline')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 pl-6">
-          <span class="opacity-40">#</span>
+        <button onclick="scrollToHeading('heading-18-c-context-vector-memory-pipeline')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 cursor-pointer pl-6">
+          <i data-lucide="hash" class="h-3 w-3 opacity-50 shrink-0"></i>
           <span class="truncate">C. Context &amp; Vector Memory Pipeline</span>
         </button>
       
-        <button onclick="scrollToHeading('heading-24-d-security-compliance')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 pl-6">
-          <span class="opacity-40">#</span>
+        <button onclick="scrollToHeading('heading-21-d-security-compliance')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 cursor-pointer pl-6">
+          <i data-lucide="hash" class="h-3 w-3 opacity-50 shrink-0"></i>
           <span class="truncate">D. Security &amp; Compliance</span>
         </button>
       
-        <button onclick="scrollToHeading('heading-28-3-implementation-execution-tracker')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 pl-4">
-          <span class="opacity-40">#</span>
+        <button onclick="scrollToHeading('heading-25-3-implementation-execution-tracker')" class="w-full text-left rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate flex items-center gap-1.5 cursor-pointer pl-4">
+          <i data-lucide="hash" class="h-3 w-3 opacity-50 shrink-0"></i>
           <span class="truncate">3. Implementation Execution Tracker</span>
         </button>
+      
+
+      
+        <div class="pt-4 mt-4 border-t border-zinc-200 dark:border-zinc-800/60">
+          <div class="px-2 text-[10px] font-semibold text-zinc-500 uppercase tracking-wider mb-1">
+            SUBPAGES (2)
+          </div>
+          
+            <a href="pages/fc7753db-503c-46f0-890a-9a0f7a6bf3ed.html" class="flex items-center gap-2 rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate no-underline">
+              <i data-lucide="file-text" class="h-3.5 w-3.5 text-zinc-400 shrink-0"></i>
+              <span class="truncate">subpage 2</span>
+            </a>
+          
+            <a href="pages/4fee2741-6d03-481d-bc3e-423ab89fa9e6.html" class="flex items-center gap-2 rounded-md px-2 py-1.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/60 transition-colors truncate no-underline">
+              <i data-lucide="file-text" class="h-3.5 w-3.5 text-zinc-400 shrink-0"></i>
+              <span class="truncate">test subpage</span>
+            </a>
+          
+        </div>
       
     </div>
 
     <!-- Bottom Guest Status & Theme Toggle -->
-    <div class="shrink-0 border-t border-zinc-200 dark:border-zinc-800/80 p-3 bg-zinc-100/50 dark:bg-zinc-900/30 flex items-center justify-between">
+    <div class="shrink-0 border-t border-zinc-200 dark:border-zinc-800/80 p-3 bg-zinc-100/60 dark:bg-zinc-900/40 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <div class="h-6 w-6 rounded-full bg-zinc-800 text-zinc-400 flex items-center justify-center text-xs">
-          👤
+        <div class="h-6 w-6 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 flex items-center justify-center text-xs">
+          <i data-lucide="user" class="h-3.5 w-3.5"></i>
         </div>
         <div class="flex flex-col">
           <span class="text-xs font-medium text-zinc-800 dark:text-zinc-200">Guest</span>
           <span class="text-[10px] text-zinc-500">Read-only mode</span>
         </div>
       </div>
-      <button onclick="toggleTheme()" class="h-8 w-8 rounded-md border border-zinc-300 dark:border-zinc-700/80 hover:bg-zinc-200 dark:hover:bg-zinc-800 flex items-center justify-center text-xs transition-colors" title="Toggle theme">
-        <span id="sidebar-theme-icon">🌙</span>
+      <button onclick="toggleTheme()" class="h-8 w-8 rounded-md border border-zinc-300 dark:border-zinc-700/80 hover:bg-zinc-200 dark:hover:bg-zinc-800 flex items-center justify-center text-xs transition-colors cursor-pointer" title="Toggle theme">
+        <span id="sidebar-theme-icon">
+          <i data-lucide="moon" class="h-4 w-4 text-zinc-600 dark:text-zinc-300"></i>
+        </span>
       </button>
     </div>
   </aside>
@@ -152,21 +174,26 @@
     <!-- Top Sticky Header Bar -->
     <header class="sticky top-0 z-20 border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-[#0c0d12]/80 backdrop-blur-md px-4 sm:px-6 h-12 flex items-center justify-between">
       <div class="flex items-center gap-2.5 min-w-0">
-        <button id="sidebar-toggle-btn" onclick="toggleSidebar()" class="h-7 w-7 rounded-md border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 flex items-center justify-center text-xs transition-colors" title="Toggle sidebar">
-          ☰
+        <button id="sidebar-toggle-btn" onclick="toggleSidebar()" class="h-8 w-8 rounded-md border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 flex items-center justify-center transition-colors cursor-pointer text-zinc-600 dark:text-zinc-400" title="Toggle sidebar">
+          <i data-lucide="panel-left-open" class="h-4 w-4"></i>
         </button>
+
+        
+
         <span class="text-xs font-semibold text-zinc-900 dark:text-zinc-100 truncate">AI Connection App Blueprint</span>
-        <span class="text-zinc-500 text-xs">•</span>
+        <span class="text-zinc-400 dark:text-zinc-600 text-xs">•</span>
         <span class="text-[11px] text-zinc-500">Read-only</span>
       </div>
       <div class="flex items-center gap-2">
-        <button onclick="toggleTheme()" class="h-7 px-2 rounded-md border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-medium flex items-center gap-1.5 transition-colors">
-          <span id="nav-theme-icon">🌙</span>
+        <button onclick="toggleTheme()" class="h-8 px-2.5 rounded-md border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer text-zinc-700 dark:text-zinc-300">
+          <span id="nav-theme-icon">
+            <i data-lucide="moon" class="h-3.5 w-3.5"></i>
+          </span>
         </button>
       </div>
     </header>
 
-    <!-- Note Cover Image Banner (Exact Screenshot 3 Match) -->
+    <!-- Note Cover Image Banner -->
     
       <div class="w-full h-52 sm:h-64 overflow-hidden relative select-none">
         <img src="https://res.cloudinary.com/heaa0mxa/image/upload/v1792312500/Dreamy_Pixel_Sunset_Street_Scene.webp" alt="" class="w-full h-full object-cover" />
@@ -178,7 +205,7 @@
       
       <!-- Floating Icon Overlapping Banner -->
       <div class="-mt-16 sm:-mt-20 mb-4 relative z-10">
-        <div class="h-16 w-16 sm:h-20 sm:w-20 rounded-2xl bg-[#111218] border-2 border-zinc-800 shadow-2xl flex items-center justify-center text-3xl sm:text-4xl overflow-hidden select-none">
+        <div class="h-16 w-16 sm:h-20 sm:w-20 rounded-2xl bg-white dark:bg-[#111218] border-2 border-zinc-200 dark:border-zinc-800 shadow-xl flex items-center justify-center text-3xl sm:text-4xl overflow-hidden select-none">
           <img src="https://res.cloudinary.com/heaa0mxa/image/upload/v1793376736/Untitled_-_October_09_2026_at_20.51.55-27.webp" class="w-full h-full object-cover" />
         </div>
       </div>
@@ -188,52 +215,51 @@
         AI Connection App Blueprint
       </h1>
       
-      <div class="flex flex-wrap items-center gap-2.5 pb-6 text-xs text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800 mb-8">
-        <span>🕒 2 min read</span>
+      <div class="flex flex-wrap items-center gap-2 pb-6 text-xs text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800 mb-8">
+        <span class="flex items-center gap-1"><i data-lucide="clock" class="h-3.5 w-3.5"></i> 2 min read</span>
         <span>•</span>
-        <span>250 words</span>
+        <span>246 words</span>
         <span>•</span>
         <span>Published with SoulSpace</span>
       </div>
 
       <!-- Article Body -->
       <article class="space-y-2 text-zinc-800 dark:text-zinc-200 text-sm sm:text-base leading-relaxed">
-        <h1 id="heading-0-ai-connection-app-blueprint" class="text-2xl sm:text-3xl font-bold mt-8 mb-4 tracking-tight text-zinc-100 group flex items-center gap-2">
-          <span>AI Connection App Blueprint</span>
-          <a href="#heading-0-ai-connection-app-blueprint" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
-        </h1>
-<h2 id="heading-1-1-executive-summary" class="text-xl sm:text-2xl font-bold mt-7 mb-3 tracking-tight text-zinc-100 group flex items-center gap-2">
+        <h2 id="heading-1-1-executive-summary" class="text-xl sm:text-2xl font-bold mt-7 mb-3 tracking-tight text-zinc-900 dark:text-zinc-100 group flex items-center gap-2">
           <span>1. Executive Summary</span>
-          <a href="#heading-1-1-executive-summary" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
+          <a href="#heading-1-1-executive-summary" class="opacity-0 group-hover:opacity-60 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">
+            <i data-lucide="hash" class="h-4 w-4 inline"></i>
+          </a>
         </h2>
-<p class="leading-relaxed my-3 text-zinc-300">The AI Connection App provides a real-time, resilient, and multi-tenant infrastructure connecting end-user applications to distributed Large Language Model (LLM) backends, hybrid vector memory stores, and context execution pipelines.</p>
+<p class="leading-relaxed my-3 text-zinc-700 dark:text-zinc-300">The AI Connection App provides a real-time, resilient, and multi-tenant infrastructure connecting end-user applications to distributed Large Language Model (LLM) backends, hybrid vector memory stores, and context execution pipelines.</p>
 <div class="h-2"></div>
-<div class="my-5 rounded-xl border border-zinc-800 bg-[#16171d] hover:border-zinc-700 hover:bg-[#1a1b22] transition-all overflow-hidden group">
+<div class="my-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-[#16171d] hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-100/80 dark:hover:bg-[#1a1b22] transition-all overflow-hidden group shadow-xs">
           <a href="https://soularise.in/" target="_blank" rel="noopener noreferrer" class="flex flex-col sm:flex-row no-underline text-inherit">
             
-              <div class="sm:w-48 h-32 sm:h-auto shrink-0 bg-zinc-900 overflow-hidden">
+              <div class="sm:w-48 h-32 sm:h-auto shrink-0 bg-zinc-100 dark:bg-zinc-900 overflow-hidden">
                 <img src="https://soularise.in/og.png" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
             
             <div class="flex-1 p-4 flex flex-col justify-between min-w-0">
               <div class="space-y-1">
-                <div class="flex items-center gap-2 text-xs font-medium text-zinc-400">
+                <div class="flex items-center gap-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">
                   <img src="https://soularise.in/favicon_io/apple-touch-icon.png" alt="" class="h-4 w-4 rounded-sm" />
                   <span class="truncate">soularise.in</span>
                 </div>
-                <div class="font-semibold text-sm text-zinc-100 group-hover:text-indigo-400 transition-colors line-clamp-1">
+                <div class="font-semibold text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-1">
                   SoulSpace — Local-First Hybrid Power Workspace
                 </div>
-                <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">A calm, local-first hybrid power workspace. Combines offline SQLite notes, visual node automations, Excalidraw whiteboards, Glide data tables, PDF annotation, and 100% on-device Whisper voice capture.</p>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed">A calm, local-first hybrid power workspace. Combines offline SQLite notes, visual node automations, Excalidraw whiteboards, Glide data tables, PDF annotation, and 100% on-device Whisper voice capture.</p>
               </div>
-              <div class="text-[11px] text-zinc-500 font-mono mt-3 truncate">https://soularise.in/</div>
+              <div class="text-[11px] text-zinc-400 dark:text-zinc-500 font-mono mt-3 truncate">https://soularise.in/</div>
             </div>
           </a>
         </div>
-<div class="relative my-5 rounded-xl border border-zinc-800 bg-[#141418] text-zinc-200 shadow-lg overflow-hidden group">
+<div class="relative my-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-[#141418] text-zinc-200 shadow-md overflow-hidden group">
           <div class="flex items-center justify-between px-4 py-2 bg-[#1b1c23] border-b border-zinc-800 text-[11px] font-mono text-zinc-400">
             <span class="font-semibold text-zinc-300">cpp</span>
             <button onclick="copyCode(this)" class="opacity-80 hover:opacity-100 text-[11px] px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 transition-all flex items-center gap-1.5 cursor-pointer">
+              <i data-lucide="copy" class="h-3 w-3"></i>
               <span>Copy</span>
             </button>
           </div>
@@ -247,68 +273,88 @@ int main() {
 }
 </code></pre>
         </div>
-<p class="leading-relaxed my-3 text-zinc-300">---</p>
-<p class="leading-relaxed my-3 text-zinc-300"><span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-zinc-800/80 text-zinc-200 border border-zinc-700/60 text-xs font-medium cursor-pointer">📄 New page</span> </p>
-<p class="leading-relaxed my-3 text-zinc-300"><span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-zinc-800/80 text-zinc-200 border border-zinc-700/60 text-xs font-medium cursor-pointer">📄 tracker</span> </p>
 <div class="h-2"></div>
-<h2 id="heading-12-2-core-architectural-requirements" class="text-xl sm:text-2xl font-bold mt-7 mb-3 tracking-tight text-zinc-100 group flex items-center gap-2">
+<p class="leading-relaxed my-3 text-zinc-700 dark:text-zinc-300"><a href="pages/fc7753db-503c-46f0-890a-9a0f7a6bf3ed.html" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-zinc-100 hover:bg-zinc-200 text-zinc-800 dark:bg-zinc-800/80 dark:hover:bg-zinc-700 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700/60 text-xs font-medium transition-colors no-underline">
+          <i data-lucide="file-text" class="h-3.5 w-3.5 text-zinc-500 shrink-0"></i>
+          <span>New page</span>
+        </a> </p>
+<div class="h-2"></div>
+<h2 id="heading-9-2-core-architectural-requirements" class="text-xl sm:text-2xl font-bold mt-7 mb-3 tracking-tight text-zinc-900 dark:text-zinc-100 group flex items-center gap-2">
           <span>2. Core Architectural Requirements</span>
-          <a href="#heading-12-2-core-architectural-requirements" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
+          <a href="#heading-9-2-core-architectural-requirements" class="opacity-0 group-hover:opacity-60 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">
+            <i data-lucide="hash" class="h-4 w-4 inline"></i>
+          </a>
         </h2>
-<h3 id="heading-13-a-real-time-transport-layer" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-100 group flex items-center gap-2">
+<h3 id="heading-10-a-real-time-transport-layer" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-900 dark:text-zinc-100 group flex items-center gap-2">
           <span>A. Real-Time Transport Layer</span>
-          <a href="#heading-13-a-real-time-transport-layer" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
+          <a href="#heading-10-a-real-time-transport-layer" class="opacity-0 group-hover:opacity-60 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">
+            <i data-lucide="hash" class="h-4 w-4 inline"></i>
+          </a>
         </h3>
-<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-300">
+<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-700 dark:text-zinc-300">
 <li><strong>Protocol</strong>: WebSockets for bi-directional streaming with automatic SSE fallback for lightweight clients.</li>
 <li><strong>Latency Target</strong>: Sub-100ms time-to-first-token (TTFT) network handshaking.</li>
 <li><strong>Connection Management</strong>: Distributed Pub/Sub state broker (Redis/NATS) for session handling across horizontally scaled app instances.</li>
 </ul>
-<h3 id="heading-17-b-multi-model-gateway-orchestration" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-100 group flex items-center gap-2">
+<h3 id="heading-14-b-multi-model-gateway-orchestration" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-900 dark:text-zinc-100 group flex items-center gap-2">
           <span>B. Multi-Model Gateway &amp; Orchestration</span>
-          <a href="#heading-17-b-multi-model-gateway-orchestration" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
+          <a href="#heading-14-b-multi-model-gateway-orchestration" class="opacity-0 group-hover:opacity-60 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">
+            <i data-lucide="hash" class="h-4 w-4 inline"></i>
+          </a>
         </h3>
-<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-300">
+<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-700 dark:text-zinc-300">
 <li><strong>Router</strong>: Unified API interface supporting OpenAI, Anthropic, local vLLM instances, and custom fallback models.</li>
 <li><strong>Resilience</strong>: Dynamic retry with exponential backoff, circuit breaking, and semantic response caching.</li>
 <li><strong>Rate-Limiting</strong>: Per-user and per-organization token bucket throttling.</li>
 </ul>
-<h3 id="heading-21-c-context-vector-memory-pipeline" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-100 group flex items-center gap-2">
+<h3 id="heading-18-c-context-vector-memory-pipeline" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-900 dark:text-zinc-100 group flex items-center gap-2">
           <span>C. Context &amp; Vector Memory Pipeline</span>
-          <a href="#heading-21-c-context-vector-memory-pipeline" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
+          <a href="#heading-18-c-context-vector-memory-pipeline" class="opacity-0 group-hover:opacity-60 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">
+            <i data-lucide="hash" class="h-4 w-4 inline"></i>
+          </a>
         </h3>
-<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-300">
+<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-700 dark:text-zinc-300">
 <li><strong>Context Hydration</strong>: Dynamic hybrid retrieval (Vector + BM25 keyword search) for active user sessions.</li>
 <li><strong>Memory Tiering</strong>: Short-term sliding-window conversation memory backed by fast cache + long-term episodic memory in vector index.</li>
 </ul>
-<h3 id="heading-24-d-security-compliance" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-100 group flex items-center gap-2">
+<h3 id="heading-21-d-security-compliance" class="text-lg sm:text-xl font-semibold mt-6 mb-2 tracking-tight text-zinc-900 dark:text-zinc-100 group flex items-center gap-2">
           <span>D. Security &amp; Compliance</span>
-          <a href="#heading-24-d-security-compliance" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
+          <a href="#heading-21-d-security-compliance" class="opacity-0 group-hover:opacity-60 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">
+            <i data-lucide="hash" class="h-4 w-4 inline"></i>
+          </a>
         </h3>
-<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-300">
+<ul class="list-disc pl-6 space-y-1.5 my-3 text-zinc-700 dark:text-zinc-300">
 <li><strong>Authentication</strong>: JWT-based OAuth2 / OIDC authentication at gateway edge.</li>
 <li><strong>Data Privacy</strong>: Automatic PII scrubbing prior to LLM payload dispatch; zero-retention data policies where required.</li>
 </ul>
-<p class="leading-relaxed my-3 text-zinc-300">---</p>
-<h2 id="heading-28-3-implementation-execution-tracker" class="text-xl sm:text-2xl font-bold mt-7 mb-3 tracking-tight text-zinc-100 group flex items-center gap-2">
+<p class="leading-relaxed my-3 text-zinc-700 dark:text-zinc-300">---</p>
+<h2 id="heading-25-3-implementation-execution-tracker" class="text-xl sm:text-2xl font-bold mt-7 mb-3 tracking-tight text-zinc-900 dark:text-zinc-100 group flex items-center gap-2">
           <span>3. Implementation Execution Tracker</span>
-          <a href="#heading-28-3-implementation-execution-tracker" class="opacity-0 group-hover:opacity-60 text-zinc-500 hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">#</a>
+          <a href="#heading-25-3-implementation-execution-tracker" class="opacity-0 group-hover:opacity-60 text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300 text-sm no-underline" aria-label="Permalink">
+            <i data-lucide="hash" class="h-4 w-4 inline"></i>
+          </a>
         </h2>
-<p class="leading-relaxed my-3 text-zinc-300">Use the embedded execution tracker below to manage tasks, assign priorities, and track deployment progress.</p>
+<p class="leading-relaxed my-3 text-zinc-700 dark:text-zinc-300">Use the embedded execution tracker below to manage tasks, assign priorities, and track deployment progress.</p>
+<div id="db-view-8a6edf92-6f2d-49eb-8169-c77522ff0351" class="my-8" data-database-id="8a6edf92-6f2d-49eb-8169-c77522ff0351"></div>
 
       </article>
 
-      <!-- Inlined Interactive Database -->
+      <!-- Main Database Viewport Fallback -->
       <div id="database-viewport" class="mt-10"></div>
     </main>
 
     <!-- Footer -->
     <footer class="mt-20 border-t border-zinc-200 dark:border-zinc-800/80 py-8 text-center text-xs text-zinc-500">
-      Published with <a href="https://github.com" target="_blank" rel="noreferrer" class="font-medium text-zinc-400 hover:underline">SoulSpace</a> on GitHub Pages
+      Published with <a href="https://github.com" target="_blank" rel="noreferrer" class="font-medium text-zinc-600 dark:text-zinc-400 hover:underline">SoulSpace</a> on GitHub Pages
     </footer>
   </div>
 
   <script>
+    // Initialize Lucide icons
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+
     // 1. Sidebar Toggle
     function toggleSidebar() {
       const sidebar = document.getElementById('guest-sidebar');
@@ -335,17 +381,20 @@ int main() {
     }
 
     function updateThemeIcons(isDark) {
-      const icon = isDark ? '🌙' : '☀️';
       const sIcon = document.getElementById('sidebar-theme-icon');
       const nIcon = document.getElementById('nav-theme-icon');
-      if (sIcon) sIcon.innerText = icon;
-      if (nIcon) nIcon.innerText = icon;
+      const iconName = isDark ? 'moon' : 'sun';
+      if (sIcon) sIcon.innerHTML = '<i data-lucide="' + iconName + '" class="h-4 w-4"></i>';
+      if (nIcon) nIcon.innerHTML = '<i data-lucide="' + iconName + '" class="h-3.5 w-3.5"></i>';
+      if (window.lucide) lucide.createIcons();
     }
 
-    if (localStorage.getItem('soulspace-theme') === 'light') {
+    const savedTheme = localStorage.getItem('soulspace-theme');
+    if (savedTheme === 'light') {
       document.documentElement.classList.remove('dark');
       updateThemeIcons(false);
-    } else {
+    } else if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
       updateThemeIcons(true);
     }
 
@@ -363,49 +412,165 @@ int main() {
       });
     }
 
-    // 5. Interactive Database Viewport
-    const dbData = {"id":"8a6edf92-6f2d-49eb-8169-c77522ff0351","title":"Execution Tracker","properties":[{"id":"title","name":"Name","type":"title"},{"id":"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9","name":"Module","type":"select"},{"id":"prop_2094048f-bc00-4634-b543-66e562ac49ac","name":"Status","type":"status"},{"id":"prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f","name":"Priority","type":"select"},{"id":"prop_c270790c-12ec-4fa5-857b-f2beb7d39884","name":"Owner","type":"text"},{"id":"prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc","name":"Target Date","type":"date"}],"rows":[{"id":"0c389b3b-f558-4f48-9e8e-488a016614e1","values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"274739d1-980d-42d5-ba63-105a6f6ea136","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2615034c-9214-4898-a1a3-84a26b8b0d9f","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"72a5e097-468b-43cc-9bf4-9c7729fbda88","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Lead Backend Eng","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-15"}},{"id":"59ca808d-d71b-4938-8b44-5221db0803d5","values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"63b1884d-d212-4348-82bb-19cabf4e4e3e","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2f58bbcc-1f39-476e-a545-c98d2e90c026","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"72a5e097-468b-43cc-9bf4-9c7729fbda88","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"AI Infrastructure Lead","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-20"}},{"id":"3669c651-162a-4788-96ef-9ded7e683575","values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"12bfedcd-b61b-4192-a0f8-4eb1c624803c","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2f58bbcc-1f39-476e-a545-c98d2e90c026","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"89038eeb-f020-4e29-98b8-9765ec5cc5e2","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Data Engineer","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-25"}},{"id":"fc1c6ea8-5a21-4ca4-8c58-e8b9bc034082","values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"074d1a1e-7715-48c9-a089-b62a775592d6","prop_2094048f-bc00-4634-b543-66e562ac49ac":"a49fbf3e-2706-408d-a580-8c900ca75c99","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"72a5e097-468b-43cc-9bf4-9c7729fbda88","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Security Engineer","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-05"}},{"id":"7f3efc5b-87f7-46f7-8115-1ce0cecf5176","values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"8fc0a050-83c4-41a1-8c88-d89d25d2cb5a","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2f58bbcc-1f39-476e-a545-c98d2e90c026","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"90696f03-221d-4dc1-85df-f43cf613a00b","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Frontend Architect","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-12-01"}}]};
-    if (dbData && dbData.properties && dbData.rows) {
-      renderDatabase(dbData);
-    }
+    // 5. Database Renderer with full UUID-to-Option badge styling
+    const allDatabases = {"8a6edf92-6f2d-49eb-8169-c77522ff0351":{"id":"8a6edf92-6f2d-49eb-8169-c77522ff0351","title":"Execution Tracker","views":[{"id":"776de09d-68b4-48fb-9f3c-feb8e45768c0","name":"All Tasks","layout":"table"},{"id":"e2067ec4-87bc-4f19-8886-8a09e8e3eb5b","name":"Status Board","layout":"board"},{"id":"dd425c80-e369-41e7-a92f-cdb0f4be3cfe","name":"Priority Breakdown","layout":"chart"}],"properties":[{"id":"title","name":"Name","type":"title","config":{"options":[]}},{"id":"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9","name":"Module","type":"select","config":{"options":[{"id":"274739d1-980d-42d5-ba63-105a6f6ea136","name":"Transport Layer","color":"blue"},{"id":"63b1884d-d212-4348-82bb-19cabf4e4e3e","name":"Model Router","color":"purple"},{"id":"12bfedcd-b61b-4192-a0f8-4eb1c624803c","name":"Vector Store","color":"green"},{"id":"074d1a1e-7715-48c9-a089-b62a775592d6","name":"Auth & Security","color":"red"},{"id":"8fc0a050-83c4-41a1-8c88-d89d25d2cb5a","name":"Client SDK","color":"yellow"}]}},{"id":"prop_2094048f-bc00-4634-b543-66e562ac49ac","name":"Status","type":"status","config":{"options":[{"id":"2f58bbcc-1f39-476e-a545-c98d2e90c026","name":"To Do","color":"gray"},{"id":"2615034c-9214-4898-a1a3-84a26b8b0d9f","name":"In Progress","color":"blue"},{"id":"82b4d559-0dca-4d41-9117-227ddc0981f6","name":"In Review","color":"yellow"},{"id":"a49fbf3e-2706-408d-a580-8c900ca75c99","name":"Done","color":"green"}]}},{"id":"prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f","name":"Priority","type":"select","config":{"options":[{"id":"72a5e097-468b-43cc-9bf4-9c7729fbda88","name":"P0 - Critical","color":"red"},{"id":"89038eeb-f020-4e29-98b8-9765ec5cc5e2","name":"P1 - High","color":"orange"},{"id":"90696f03-221d-4dc1-85df-f43cf613a00b","name":"P2 - Medium","color":"gray"}]}},{"id":"prop_c270790c-12ec-4fa5-857b-f2beb7d39884","name":"Owner","type":"text","config":{"options":[]}},{"id":"prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc","name":"Target Date","type":"date","config":{"options":[]}}],"rows":[{"id":"0c389b3b-f558-4f48-9e8e-488a016614e1","title":"WebSocket Gateway & SSE Fallback","icon":null,"values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"274739d1-980d-42d5-ba63-105a6f6ea136","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2615034c-9214-4898-a1a3-84a26b8b0d9f","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"72a5e097-468b-43cc-9bf4-9c7729fbda88","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Lead Backend Eng","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-15","title":"WebSocket Gateway & SSE Fallback","name":"WebSocket Gateway & SSE Fallback"}},{"id":"59ca808d-d71b-4938-8b44-5221db0803d5","title":"Multi-Provider LLM Router & Fallback Pipeline","icon":null,"values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"63b1884d-d212-4348-82bb-19cabf4e4e3e","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2f58bbcc-1f39-476e-a545-c98d2e90c026","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"72a5e097-468b-43cc-9bf4-9c7729fbda88","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"AI Infrastructure Lead","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-20","title":"Multi-Provider LLM Router & Fallback Pipeline","name":"Multi-Provider LLM Router & Fallback Pipeline"}},{"id":"3669c651-162a-4788-96ef-9ded7e683575","title":"Hybrid Vector RAG & Episodic Memory Setup","icon":null,"values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"12bfedcd-b61b-4192-a0f8-4eb1c624803c","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2f58bbcc-1f39-476e-a545-c98d2e90c026","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"89038eeb-f020-4e29-98b8-9765ec5cc5e2","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Data Engineer","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-25","title":"Hybrid Vector RAG & Episodic Memory Setup","name":"Hybrid Vector RAG & Episodic Memory Setup"}},{"id":"fc1c6ea8-5a21-4ca4-8c58-e8b9bc034082","title":"JWT / OAuth2 Edge Auth & Token Bucket Throttling","icon":null,"values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"074d1a1e-7715-48c9-a089-b62a775592d6","prop_2094048f-bc00-4634-b543-66e562ac49ac":"a49fbf3e-2706-408d-a580-8c900ca75c99","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"72a5e097-468b-43cc-9bf4-9c7729fbda88","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Security Engineer","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-11-05","title":"JWT / OAuth2 Edge Auth & Token Bucket Throttling","name":"JWT / OAuth2 Edge Auth & Token Bucket Throttling"}},{"id":"7f3efc5b-87f7-46f7-8115-1ce0cecf5176","title":"TypeScript & Python Client Stream Connection SDK","icon":null,"values":{"prop_26fc90b5-a97c-48e3-b6f8-4c46e08cd0b9":"8fc0a050-83c4-41a1-8c88-d89d25d2cb5a","prop_2094048f-bc00-4634-b543-66e562ac49ac":"2f58bbcc-1f39-476e-a545-c98d2e90c026","prop_9615f75f-4c1d-4a6f-b4bf-12a02651027f":"90696f03-221d-4dc1-85df-f43cf613a00b","prop_c270790c-12ec-4fa5-857b-f2beb7d39884":"Frontend Architect","prop_697d9cde-4a93-4c0a-9809-eaa259ad48fc":"2026-12-01","title":"TypeScript & Python Client Stream Connection SDK","name":"TypeScript & Python Client Stream Connection SDK"}}]}};
 
-    function renderDatabase(db) {
-      const root = document.getElementById('database-viewport');
-      if (!root) return;
+    const COLOR_MAP = {
+      gray: {
+        badge: 'bg-zinc-100 text-zinc-700 border-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700',
+        dot: '#71717a'
+      },
+      blue: {
+        badge: 'bg-sky-500/15 text-sky-700 dark:text-sky-300 border-sky-500/30',
+        dot: '#0ea5e9'
+      },
+      purple: {
+        badge: 'bg-purple-500/15 text-purple-700 dark:text-purple-300 border-purple-500/30',
+        dot: '#a855f7'
+      },
+      green: {
+        badge: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30',
+        dot: '#10b981'
+      },
+      yellow: {
+        badge: 'bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30',
+        dot: '#f59e0b'
+      },
+      orange: {
+        badge: 'bg-orange-500/15 text-orange-700 dark:text-orange-300 border-orange-500/30',
+        dot: '#f97316'
+      },
+      red: {
+        badge: 'bg-rose-500/15 text-rose-700 dark:text-rose-300 border-rose-500/30',
+        dot: '#f43f5e'
+      },
+      pink: {
+        badge: 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border-pink-500/30',
+        dot: '#ec4899'
+      },
+      brown: {
+        badge: 'bg-amber-950/20 text-amber-800 dark:text-amber-300 border-amber-800/30',
+        dot: '#92400e'
+      }
+    };
 
-      let currentView = 'gallery';
+    function renderSingleDatabase(targetContainer, db) {
+      if (!targetContainer || !db || !db.properties || !db.rows) return;
+
+      let currentView = (db.views && db.views[0]?.layout === 'gallery') ? 'gallery' : 'table';
       let search = '';
+
+      function getOptionConfig(prop, val) {
+        if (!prop?.config?.options || !val) return null;
+        const needle = String(val).toLowerCase();
+        return prop.config.options.find(o => o.id === val || o.name.toLowerCase() === needle);
+      }
+
+      function formatCellValue(prop, val) {
+        if (val === null || val === undefined || val === '') {
+          return '<span class="text-zinc-400 dark:text-zinc-600">—</span>';
+        }
+
+        // Title property
+        if (prop.type === 'title' || prop.id === 'title') {
+          return '<span class="font-medium text-zinc-900 dark:text-zinc-100">' + String(val) + '</span>';
+        }
+
+        // Status property
+        if (prop.type === 'status') {
+          const opt = getOptionConfig(prop, val);
+          const colorKey = opt?.color || 'gray';
+          const cfg = COLOR_MAP[colorKey] || COLOR_MAP.gray;
+          const label = opt ? opt.name : String(val);
+
+          return '<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium border ' + cfg.badge + '">' +
+            '<span class="h-1.5 w-1.5 rounded-full shrink-0" style="background-color: ' + cfg.dot + '"></span>' +
+            '<span>' + label + '</span>' +
+          '</span>';
+        }
+
+        // Select property
+        if (prop.type === 'select') {
+          const opt = getOptionConfig(prop, val);
+          const colorKey = opt?.color || 'blue';
+          const cfg = COLOR_MAP[colorKey] || COLOR_MAP.blue;
+          const label = opt ? opt.name : String(val);
+
+          return '<span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium border ' + cfg.badge + '">' +
+            '<span>' + label + '</span>' +
+          '</span>';
+        }
+
+        // Multi-select property
+        if (prop.type === 'multi_select') {
+          const arr = Array.isArray(val) ? val : [val];
+          return '<div class="flex flex-wrap gap-1">' + arr.map(item => {
+            const opt = getOptionConfig(prop, item);
+            const colorKey = opt?.color || 'purple';
+            const cfg = COLOR_MAP[colorKey] || COLOR_MAP.purple;
+            const label = opt ? opt.name : String(item);
+            return '<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-medium border ' + cfg.badge + '">' + label + '</span>';
+          }).join('') + '</div>';
+        }
+
+        // Date property
+        if (prop.type === 'date') {
+          return '<span class="text-zinc-600 dark:text-zinc-300 font-mono text-[11px]">' + String(val) + '</span>';
+        }
+
+        // URL property
+        if (prop.type === 'url') {
+          return '<a href="' + String(val) + '" target="_blank" rel="noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline truncate max-w-xs block">' + String(val) + '</a>';
+        }
+
+        // Checkbox property
+        if (prop.type === 'checkbox') {
+          const checked = Boolean(val);
+          return checked ? '<span class="text-emerald-500 font-bold">✓</span>' : '<span class="text-zinc-400">✕</span>';
+        }
+
+        return '<span class="text-zinc-700 dark:text-zinc-300">' + (typeof val === 'object' ? JSON.stringify(val) : String(val)) + '</span>';
+      }
 
       function draw() {
         const rows = (db.rows || []).filter(r => {
           if (!search) return true;
-          return JSON.stringify(r.values || {}).toLowerCase().includes(search.toLowerCase());
+          const lower = search.toLowerCase();
+          if (r.title && r.title.toLowerCase().includes(lower)) return true;
+          return JSON.stringify(r.values || {}).toLowerCase().includes(lower);
         });
 
-        let h = '<div class="rounded-xl border border-zinc-800 bg-[#121319] overflow-hidden shadow-lg">';
-        h += '<div class="p-3 border-b border-zinc-800 bg-[#161720] flex items-center justify-between gap-3">';
+        let h = '<div class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#121319] overflow-hidden shadow-sm">';
+        
+        // Header
+        h += '<div class="p-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#161720] flex items-center justify-between gap-3 flex-wrap">';
         h += '<div class="flex items-center gap-2">';
-        h += '<span class="text-xs font-semibold text-zinc-200">📊 ' + (db.title || 'Database') + '</span>';
-        h += '<span class="text-[10px] text-zinc-500">(' + rows.length + ')</span>';
+        h += '<i data-lucide="database" class="h-4 w-4 text-indigo-500"></i>';
+        h += '<span class="text-xs font-semibold text-zinc-900 dark:text-zinc-100">' + (db.title || 'Database') + '</span>';
+        h += '<span class="text-[10px] text-zinc-500 font-mono">(' + rows.length + ')</span>';
         h += '</div>';
+
         h += '<div class="flex items-center gap-2">';
-        h += '<input id="db-search-input" value="' + search + '" placeholder="Search database..." class="text-xs px-2.5 py-1 rounded-md border border-zinc-700 bg-zinc-900 text-zinc-200 focus:outline-none w-36 sm:w-48" />';
-        h += '<div class="flex rounded-md border border-zinc-700 overflow-hidden text-[11px]">';
-        h += '<button id="btn-gallery" class="px-2.5 py-1 ' + (currentView === 'gallery' ? 'bg-zinc-700 font-semibold text-white' : 'hover:bg-zinc-800 text-zinc-400') + '">Gallery</button>';
-        h += '<button id="btn-table" class="px-2.5 py-1 ' + (currentView === 'table' ? 'bg-zinc-700 font-semibold text-white' : 'hover:bg-zinc-800 text-zinc-400') + '">Table</button>';
+        h += '<div class="relative">';
+        h += '<input id="db-search-' + db.id + '" value="' + search + '" placeholder="Search database..." class="text-xs pl-7 pr-2.5 py-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 w-36 sm:w-48" />';
+        h += '<i data-lucide="search" class="h-3.5 w-3.5 text-zinc-400 absolute left-2 top-2"></i>';
+        h += '</div>';
+
+        h += '<div class="flex rounded-md border border-zinc-200 dark:border-zinc-700 overflow-hidden text-[11px] bg-zinc-100 dark:bg-zinc-800/80 p-0.5">';
+        h += '<button id="btn-gallery-' + db.id + '" class="px-2.5 py-1 rounded flex items-center gap-1 cursor-pointer transition-colors ' + (currentView === 'gallery' ? 'bg-white dark:bg-zinc-700 font-semibold text-zinc-900 dark:text-white shadow-2xs' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200') + '"><i data-lucide="layout-grid" class="h-3 w-3"></i> Gallery</button>';
+        h += '<button id="btn-table-' + db.id + '" class="px-2.5 py-1 rounded flex items-center gap-1 cursor-pointer transition-colors ' + (currentView === 'table' ? 'bg-white dark:bg-zinc-700 font-semibold text-zinc-900 dark:text-white shadow-2xs' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200') + '"><i data-lucide="table" class="h-3 w-3"></i> Table</button>';
         h += '</div></div></div>';
 
         if (currentView === 'gallery') {
           h += '<div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">';
           rows.forEach(r => {
-            h += '<div class="p-3.5 rounded-lg border border-zinc-800 bg-[#181922] shadow-sm hover:border-zinc-700 transition-colors space-y-2">';
+            h += '<div class="p-3.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#181922] shadow-2xs hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors space-y-2">';
             (db.properties || []).forEach((p, idx) => {
               const val = r.values?.[p.id];
-              if (!val) return;
               if (idx === 0) {
-                h += '<div class="font-semibold text-xs text-zinc-100">' + val + '</div>';
-              } else {
-                h += '<div class="text-[11px] text-zinc-400 flex items-center justify-between"><span class="opacity-60">' + p.name + ':</span><span>' + (typeof val === 'object' ? JSON.stringify(val) : val) + '</span></div>';
+                h += '<div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 truncate flex items-center gap-1.5"><i data-lucide="file-text" class="h-3.5 w-3.5 text-zinc-400 shrink-0"></i> <span>' + (r.title || val || 'Untitled') + '</span></div>';
+              } else if (val !== undefined && val !== null && val !== '') {
+                h += '<div class="text-[11px] flex items-center justify-between gap-2"><span class="text-zinc-400 shrink-0">' + p.name + ':</span><span class="truncate">' + formatCellValue(p, val) + '</span></div>';
               }
             });
             h += '</div>';
@@ -413,16 +578,16 @@ int main() {
           h += '</div>';
         } else {
           h += '<div class="overflow-x-auto"><table class="w-full text-left text-xs border-collapse">';
-          h += '<thead class="bg-zinc-800/60 text-zinc-400 uppercase font-semibold border-b border-zinc-800"><tr>';
+          h += '<thead class="bg-zinc-50 dark:bg-zinc-800/60 text-zinc-500 dark:text-zinc-400 uppercase font-semibold border-b border-zinc-200 dark:border-zinc-800"><tr>';
           (db.properties || []).forEach(p => {
-            h += '<th class="px-4 py-2.5">' + p.name + '</th>';
+            h += '<th class="px-4 py-2.5 tracking-wider text-[11px]">' + p.name + '</th>';
           });
-          h += '</tr></thead><tbody class="divide-y divide-zinc-800/60">';
+          h += '</tr></thead><tbody class="divide-y divide-zinc-200 dark:divide-zinc-800/60">';
           rows.forEach(r => {
-            h += '<tr class="hover:bg-zinc-800/20">';
+            h += '<tr class="hover:bg-zinc-50/80 dark:hover:bg-zinc-800/20 transition-colors">';
             (db.properties || []).forEach(p => {
-              const val = r.values?.[p.id] ?? '';
-              h += '<td class="px-4 py-2.5 text-zinc-300">' + (typeof val === 'object' ? JSON.stringify(val) : val || '-') + '</td>';
+              const val = r.values?.[p.id];
+              h += '<td class="px-4 py-2.5 align-middle">' + formatCellValue(p, val) + '</td>';
             });
             h += '</tr>';
           });
@@ -430,22 +595,39 @@ int main() {
         }
 
         h += '</div>';
-        root.innerHTML = h;
+        targetContainer.innerHTML = h;
 
-        const sInput = document.getElementById('db-search-input');
+        if (window.lucide) lucide.createIcons();
+
+        const sInput = document.getElementById('db-search-' + db.id);
         if (sInput) {
           sInput.oninput = (e) => { search = e.target.value; draw(); };
-          sInput.focus();
-          sInput.selectionStart = sInput.selectionEnd = sInput.value.length;
         }
 
-        const bGallery = document.getElementById('btn-gallery');
+        const bGallery = document.getElementById('btn-gallery-' + db.id);
         if (bGallery) bGallery.onclick = () => { currentView = 'gallery'; draw(); };
-        const bTable = document.getElementById('btn-table');
+        const bTable = document.getElementById('btn-table-' + db.id);
         if (bTable) bTable.onclick = () => { currentView = 'table'; draw(); };
       }
 
       draw();
+    }
+
+    // Mount all databases
+    const dbKeys = Object.keys(allDatabases);
+    if (dbKeys.length > 0) {
+      dbKeys.forEach(k => {
+        const inlineContainer = document.getElementById('db-view-' + k);
+        if (inlineContainer) {
+          renderSingleDatabase(inlineContainer, allDatabases[k]);
+        }
+      });
+
+      // If the first database wasn't placed in an inline block, render in default viewport
+      const defaultRoot = document.getElementById('database-viewport');
+      if (defaultRoot && !document.getElementById('db-view-' + dbKeys[0])) {
+        renderSingleDatabase(defaultRoot, allDatabases[dbKeys[0]]);
+      }
     }
   </script>
 </body>
